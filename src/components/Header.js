@@ -35,7 +35,7 @@ function Header() {
                     </Link>
                 </li>
                 <li className="font-bold hover:font-black text-[22px] leading-7 tracking-[1.7px] uppercase text-[#212A2F]">
-                    <Link href={"/"}>
+                    <Link href={"/user"}>
                         <AiOutlineUser />
                     </Link>
                 </li>
