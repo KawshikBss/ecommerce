@@ -1,0 +1,8 @@
+.search_bar_extended {
+    width: 100%;
+    margin-left: auto;
+}
+
+.search_bar_hidden {
+    width: 0;
+}
