@@ -1,0 +1,8 @@
+.accord_extend_btn_active {
+    rotate: 180deg;
+}
+
+.accord_details_extended {
+    height: fit-content;
+    display: contents;
+}
