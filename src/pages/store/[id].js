@@ -1,3 +1,4 @@
+import Accordation from "@/components/Accordation";
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import products from "@/data/products";
@@ -71,6 +72,9 @@ function ProductDetails() {
                     <span className="text-[12px] font-normal leading-5 tracking-[0.5px] text-[#212A2F] text-center self-center">
                         Free shipping on orders over $75. Free returns.
                     </span>
+                    <Accordation label="Size & Fit" />
+                    <Accordation label="Material & care instructions" />
+                    <Accordation label="Shipping & returns" />
                 </div>
             </div>
 
