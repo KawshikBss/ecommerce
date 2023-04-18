@@ -1,3 +1,6 @@
+import Carousel from "@/components/Carousel";
+import products from "@/data/products";
+
 export default function Home() {
     return (
         <>
@@ -19,6 +22,7 @@ export default function Home() {
                     Shop Now
                 </span>
             </section>
+            <Carousel items={products} />
         </>
     );
 }
