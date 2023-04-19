@@ -10,6 +10,7 @@ function CartItem({ item }) {
                     width={200}
                     height={200}
                     src={"/" + item.image}
+                    alt={item.image}
                     className="w-1/3 h-[15vh] object-cover rounded-md"
                 />
                 <div className="w-2/3 flex flex-col justify-between items-start">
