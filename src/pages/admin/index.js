@@ -16,7 +16,7 @@ function Admin() {
     if (!session || status === "unauthenticated") {
         router.push("/");
     }
-    const { user } = session || {};
+    const { user } = session ? session : {};
     const tabs = [
         "dashboard",
         "customers",

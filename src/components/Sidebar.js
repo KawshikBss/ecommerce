@@ -1,6 +1,6 @@
 import React from "react";
 
-function Sidebar({ user, currentTab, tabs, changeTab }) {
+function Sidebar({ user = {}, currentTab = "", tabs = [], changeTab }) {
     return (
         <div className="w-1/5 h-full my-4 ml-4 bg-white shadow-xl flex flex-col justify-start items-center rounded-md">
             <div className="h-2/5 flex flex-col justify-center items-center">
