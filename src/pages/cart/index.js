@@ -1,9 +1,11 @@
 import Button from "@/components/Button";
 import CartItem from "@/components/CartItem";
+import { Cart as CartCtx } from "@/contexts/CartContext";
 import products from "@/data/products";
-import React from "react";
+import React, { useContext } from "react";
 
 function Cart() {
+    const { items } = useContext(CartCtx);
     return (
         <div className="w-full flex flex-col justify-between py-[27px] px-7">
             <div className="w-full flex flex-row justify-evenly items-start gap-8">
@@ -11,10 +13,15 @@ function Cart() {
                     <h3 className="text-[22px] leading-5 font-bold tracking-[0.5px] text-[#212A2F]">
                         My Cart (0)
                     </h3>
-                    {products &&
-                        products.slice(0, 3).map((item, index) => {
+                    {items.length > 0 ? (
+                        items.map((item, index) => {
                             return <CartItem item={item} key={index} />;
-                        })}
+                        })
+                    ) : (
+                        <h3 className="text-[16px] leading-5 font-bold tracking-[0.5px] text-[#212A2F]">
+                            Cart Is Empty
+                        </h3>
+                    )}
                 </div>
                 <div className="w-1/3 flex flex-col justify-between items-center gap-6 shadow-xl p-4 rounded-md">
                     <span className="w-full flex flex-row justify-between items-center text-[#212A2F] text-[16px] leading-5 font-bold tracking-[0.5px]">
