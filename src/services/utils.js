@@ -1,8 +1,11 @@
 import users from "@/data/users";
 
 export const searchUser = (phone) => {
+    let userFound = false;
     users.forEach((user) => {
-        if (user.phone === phone) return user;
+        if (user.phone === phone) {
+            userFound = user;
+        }
     });
-    return false;
+    return userFound;
 };
