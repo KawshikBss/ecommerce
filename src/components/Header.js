@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
     AiOutlineSearch,
     AiOutlineUser,
@@ -9,6 +9,7 @@ import {
 import styles from "@/styles/Header.module.css";
 import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
+import { Cart } from "@/contexts/CartContext";
 
 function Header() {
     const [searchExtended, setSearchExtended] = useState(false);
@@ -17,6 +18,7 @@ function Header() {
     };
 
     const { data: session, status } = useSession();
+    const { totalUniqueItems } = useContext(Cart);
 
     return (
         <nav className="flex flex-row justify-between items-center p-[12px]">
@@ -74,9 +76,16 @@ function Header() {
                         <AiOutlineLogout />
                     </li>
                 )}
-                <li className="font-bold text-[22px] leading-7 tracking-[1.7px] uppercase text-[#212A2F]">
+                <li className="font-bold text-[22px] leading-7 tracking-[1.7px] uppercase text-[#212A2F] relative">
                     <Link href={"/cart"}>
                         <AiOutlineShoppingCart />
+                        {totalUniqueItems && totalUniqueItems > 0 ? (
+                            <span className="h-[16px] w-[16px] absolute -top-2 -right-2 bg-[#212A2F] text-[10px] text-white rounded-full flex justify-center items-center">
+                                {totalUniqueItems}
+                            </span>
+                        ) : (
+                            ""
+                        )}
                     </Link>
                 </li>
             </ul>
