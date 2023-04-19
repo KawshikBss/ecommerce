@@ -9,11 +9,11 @@ function Cart() {
         items,
         totalUniqueItems,
         isEmpty,
+        removeItem,
         cartTotal,
         updateItemQuantity,
         emptyCart,
     } = useContext(CartCtx);
-    console.log(items);
     return (
         <div className="w-full flex flex-col justify-between py-[27px] px-7">
             <div className="w-full flex flex-row justify-evenly items-start gap-8">
@@ -30,6 +30,7 @@ function Cart() {
                                     price={item.totalPrice}
                                     quantity={item.quantity}
                                     updateItemQuantity={updateItemQuantity}
+                                    removeItem={removeItem}
                                     key={index}
                                 />
                             );
