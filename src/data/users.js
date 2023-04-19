@@ -2,7 +2,7 @@ export default [
     {
         id: 0,
         name: "admin",
-        phone: "01700000000",
+        phone: "admin",
         password: "admin",
         admin: true,
     },
