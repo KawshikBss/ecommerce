@@ -6,12 +6,21 @@ import products from "@/data/products";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useContext } from "react";
+import { toast } from "react-toastify";
 
 function ProductDetails() {
     const router = useRouter();
     const { id } = router.query;
     const product = id < products.length ? products[id] : products[0];
     const { addItem } = useContext(Cart);
+    const handleAddToCart = () => {
+        addItem(product);
+        toast(
+            `${
+                product?.name ? product.name : "Item"
+            } added successfully to cart`
+        );
+    };
     return (
         <div className="w-full">
             <div className="w-full flex flex-row justify-between items-start px-3 my-5 gap-5">
@@ -72,7 +81,7 @@ function ProductDetails() {
                     </span>
                     <Button
                         label={"Add to cart"}
-                        handleClick={() => addItem(product)}
+                        handleClick={handleAddToCart}
                     />
                     <span className="text-[12px] font-normal leading-5 tracking-[0.5px] text-[#212A2F] text-center self-center">
                         Free shipping on orders over $75. Free returns.
