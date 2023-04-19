@@ -27,20 +27,21 @@ function Admin() {
         if (currentTab === tabName) return;
         setCurrentTab(tabName);
     };
-    if (
+    /* if (
         typeof window !== "undefined" &&
         status === "unauthenticated" &&
         !session
     ) {
         router.push("/auth");
-    }
-    /* useEffect(() => {
+    } */
+    useEffect(() => {
         if (!session || status === "unauthenticated") {
             router.push("/");
         } else if (session && status === "authenticated") {
             setPageAccessable(true);
         }
-    }, [session, status]); */
+    }, []);
+
     return pageAccessable ? (
         <div className="w-full h-[90vh] bg-[#f1ebe7] flex flex-row justify-between items-start">
             <Sidebar
