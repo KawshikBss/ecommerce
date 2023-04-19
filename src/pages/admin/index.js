@@ -14,7 +14,7 @@ function Admin() {
     const { data: session, status } = useSession();
     const router = useRouter();
     if (!session || status === "unauthenticated") {
-        // router.push("/");
+        router.push("/");
     }
     const { user } = session || {};
     const tabs = [
