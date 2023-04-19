@@ -3,10 +3,14 @@ import InputField from "@/components/InputField";
 import { searchUser } from "@/services/utils";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 
 function Auth() {
+    const { data: session, status } = useSession();
     const router = useRouter();
+    if (session || status === "authenticated") {
+        router.push("/");
+    }
     const [signInFormData, setSignInFormData] = useState({
         phone: "",
         password: "",
@@ -42,9 +46,9 @@ function Auth() {
         }).catch((error) => {
             console.log(error);
         });
-        console.log(res);
-        /* router.push("/");
-        } */
+        if (res) {
+            router.push("/");
+        }
     };
     const handleSignUp = () => {
         console.log(signUpFormData);
