@@ -1,4 +1,4 @@
-import users from "@/data/users";
+import users from "@/data/usersdata";
 
 export const searchUser = (phone) => {
     let userFound = false;
