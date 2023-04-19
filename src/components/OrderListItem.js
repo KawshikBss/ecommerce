@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function OrderListItem({ order }) {
@@ -54,7 +55,7 @@ function OrderListItem({ order }) {
             </div>
             <span className="flex flex-row justify-between items-center gap-2 border-2 border-[#212A2F] rounded-md overflow-hidden">
                 <span className="flex justify-center items-center bg-white hover:bg-[#212A2F] text-[#212A2F] hover:text-white px-2 cursor-pointer  transition-all duration-300 ease-in-out">
-                    View
+                    <Link href={`/order/${order.id}`}>View</Link>
                 </span>
                 <span className="flex justify-center items-center bg-white hover:bg-[#212A2F] text-[#212A2F] hover:text-white px-2 cursor-pointer  transition-all duration-300 ease-in-out">
                     Report
