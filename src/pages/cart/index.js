@@ -1,7 +1,7 @@
 import Button from "@/components/Button";
 import CartItem from "@/components/CartItem";
 import { Cart as CartCtx } from "@/contexts/CartContext";
-import products from "@/data/products";
+import products from "@/data/productsdata";
 import React, { useContext } from "react";
 
 function Cart() {

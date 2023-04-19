@@ -1,5 +1,5 @@
 import Card from "@/components/Card";
-import products from "@/data/products";
+import products from "@/data/productsdata";
 import Image from "next/image";
 import React from "react";
 
