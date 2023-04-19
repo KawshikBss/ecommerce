@@ -11,6 +11,7 @@ function Card({ item }) {
                         width={330}
                         height={325}
                         src={"/" + item.image}
+                        alt={item.image}
                         className="min-w-[330px] h-[325px] rounded-md object-cover hover:scale-150 transition-all duration-300 ease-in-out"
                     />
                 </div>
