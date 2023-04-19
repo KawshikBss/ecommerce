@@ -5,7 +5,6 @@ import Dashboard from "@/components/admin/Dashboard";
 import Orders from "@/components/admin/Orders";
 import Products from "@/components/admin/Products";
 import Users from "@/components/admin/Users";
-import { data } from "autoprefixer";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -28,13 +27,20 @@ function Admin() {
         if (currentTab === tabName) return;
         setCurrentTab(tabName);
     };
-    useEffect(() => {
+    if (
+        typeof window !== "undefined" &&
+        status === "unauthenticated" &&
+        !session
+    ) {
+        router.push("/auth");
+    }
+    /* useEffect(() => {
         if (!session || status === "unauthenticated") {
             router.push("/");
         } else if (session && status === "authenticated") {
             setPageAccessable(true);
         }
-    }, [session, status]);
+    }, [session, status]); */
     return pageAccessable ? (
         <div className="w-full h-[90vh] bg-[#f1ebe7] flex flex-row justify-between items-start">
             <Sidebar
