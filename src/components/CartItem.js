@@ -1,8 +1,15 @@
 import Image from "next/image";
 import React from "react";
-import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineMinus, AiFillDelete } from "react-icons/ai";
 
-function CartItem({ itemId, item, price, quantity, updateItemQuantity }) {
+function CartItem({
+    itemId,
+    item,
+    price,
+    quantity,
+    updateItemQuantity,
+    removeItem,
+}) {
     return (
         <div className="w-full flex flex-row justify-between items-start">
             <div className="w-2/3 flex flex-row justify-between items-start gap-8">
@@ -33,7 +40,7 @@ function CartItem({ itemId, item, price, quantity, updateItemQuantity }) {
                 <span className="flex flex-row justify-between items-center gap-2 border-2 border-[#212A2F] rounded-xl px-2">
                     <span
                         onClick={() => updateItemQuantity(itemId, -1)}
-                        className="bg-white hover:bg-[#212A2F] text-[#212A2F] hover:text-white rounded-xl cursor-pointer  transition-all duration-300 ease-in-out"
+                        className="w-[20px] h-[20px] flex justify-center items-center bg-white hover:bg-[#212A2F] text-[#212A2F] hover:text-white rounded-xl cursor-pointer  transition-all duration-300 ease-in-out"
                     >
                         <AiOutlineMinus />
                     </span>
@@ -42,10 +49,16 @@ function CartItem({ itemId, item, price, quantity, updateItemQuantity }) {
                     </span>
                     <span
                         onClick={() => updateItemQuantity(itemId, 1)}
-                        className="bg-white hover:bg-[#212A2F] text-[#212A2F] hover:text-white rounded-xl cursor-pointer  transition-all duration-300 ease-in-out"
+                        className="w-[20px] h-[20px] flex justify-center items-center bg-white hover:bg-[#212A2F] text-[#212A2F] hover:text-white rounded-xl cursor-pointer  transition-all duration-300 ease-in-out"
                     >
                         <AiOutlinePlus />
                     </span>
+                </span>
+                <span
+                    onClick={() => removeItem(itemId)}
+                    className="w-[20px] h-[20px] flex justify-center items-center bg-white hover:bg-[#212A2F] text-[#212A2F] hover:text-white rounded-full cursor-pointer  transition-all duration-300 ease-in-out"
+                >
+                    <AiFillDelete />
                 </span>
             </div>
         </div>
