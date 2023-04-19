@@ -8,14 +8,12 @@ import Users from "@/components/admin/Users";
 import { data } from "autoprefixer";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Admin() {
     const { data: session, status } = useSession();
     const router = useRouter();
-    if (!session || status === "unauthenticated") {
-        router.push("/");
-    }
+    const [pageAccessable, setPageAccessable] = useState(false);
     const { user } = session ? session : {};
     const tabs = [
         "dashboard",
@@ -30,7 +28,14 @@ function Admin() {
         if (currentTab === tabName) return;
         setCurrentTab(tabName);
     };
-    return (
+    useEffect(() => {
+        if (!session || status === "unauthenticated") {
+            router.push("/");
+        } else if (session && status === "authenticated") {
+            setPageAccessable(true);
+        }
+    }, [session, status]);
+    return pageAccessable ? (
         <div className="w-full h-[90vh] bg-[#f1ebe7] flex flex-row justify-between items-start">
             <Sidebar
                 user={user}
@@ -56,6 +61,10 @@ function Admin() {
                 )}
             </div>
         </div>
+    ) : (
+        <h1 className="text-[32px] leading-5 font-bold tracking-[0.5px] text-[#212A2F]">
+            Loading...
+        </h1>
     );
 }
 
