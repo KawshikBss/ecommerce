@@ -11,6 +11,10 @@ npm run dev
 
 This will install the required dependencies and start the development server.
 
+## Login Credentials
+Admin: {Phone: admin, Password: admin}
+Dummy User: {Phone: 01700000001, Password: 123456788}
+
 ## Features
 
 This ecommerce website includes the following features:
